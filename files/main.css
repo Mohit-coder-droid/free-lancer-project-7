@@ -1,0 +1,582 @@
+/*All the css will be written here*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*Creating of gloabal variable*/
+:root{
+	--purple: rgb(250,34,91);
+	--para_dark:#7a89ab;
+	--violet: rgb(73,98,155);
+}
+
+body{
+	background: rgb(150,197,119)
+}
+
+/*Linking the font family*/
+@font-face {
+	font-family: Montserrat;
+	src: url('../fonts/Montserrat-Light.ttf');
+}
+
+@font-face {
+	font-family: Montserrat-bold;
+	src: url('../fonts/Montserrat-Bold.ttf');
+}
+@font-face {
+	font-family: Source_sans_pro-bold;
+	src: url('../fonts/SourceSansPro-SemiBold.ttf');
+}
+@font-face {
+	font-family: Source_sans_pro;
+	src: url('../fonts/SourceSansPro-ExtraLight.ttf');
+}
+
+/*Styling the Navbar*/
+
+nav{
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
+
+.nav-show{
+  /*Makning it visible hidden so that we can make it once again so on click*/
+  visibility: visible;
+}
+
+/*Styling of burger*/
+.menu-btn{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 54px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  /* border: 3px solid #fff; */
+  z-index: 10000000000000000000000;
+  position: fixed;
+}
+
+/*Styling of hamburger*/
+.menu-btn_burger{
+  width: 50px;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px -5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+  visibility: visible;
+}
+
+/*Burger will be created by pseudo elements*/
+.menu-btn_burger::before, 
+.menu-btn_burger::after{
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before
+{
+  transform: translateY(-10px);
+}
+.menu-btn_burger::after
+{
+  transform: translateY(10px);
+}
+
+/*Creating of Animation*/
+.menu-btn.open .menu-btn_burger{
+  /*Make the middle line get out of the seen position*/
+  transition: 1s;
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-btn.open .menu-btn_burger::before{
+  transition: 1s;
+  transform: rotate(45deg) translate(35px,-35px);
+}
+
+.menu-btn.open .menu-btn_burger::after{
+  transition: 1s;
+  transform: rotate(-45deg) translate(35px,35px);
+}
+
+.nav_content{
+  width: 100%;
+  height: 100vh;
+  z-index: 10000000000000000;
+  background: rgb(0,0,0);
+  position: fixed;
+}
+
+
+nav li{
+  margin: 61px;
+  font-size: 40px;
+  list-style: none;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+nav li:hover{
+	color: var(--purple)
+}
+
+nav li:nth-child(1){
+	color: var(--purple)
+}
+
+/*Creating of classes that will be helpful for us later on*/
+.centered{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.section_heading{
+	position: absolute;
+	top: 40px;
+	line-height: 1.2;
+	letter-spacing: 1px;
+	font-size: 40px;
+	font-family: Source_sans_pro-bold;
+}
+
+.section_sub_heading{
+  color: #667084;
+  line-height: 1.29;
+  position: absolute;
+  top: 99px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.section_sub_heading:after{
+  content: '';
+  background: white;
+  height: 1px;
+  width: 90%;
+  position: absolute;
+  bottom: -17px;
+  left: 5%;
+}
+
+/*Styling of header section*/
+
+.header{
+	width: 100%;
+	min-height: 663px;
+	height: auto;
+	background-image: url('../images/header-bg.webp');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	color: white;
+	background-attachment: fixed;
+	position: relative;
+	flex-wrap: wrap;
+}
+
+.header *{
+	background-attachment: fixed;
+}
+
+.header_content{
+	width: 947px;
+	height: 242px;
+	font-family: Montserrat, Arial, Helvetica, sans-serif;
+	position: relative;
+  line-height: 1.2;
+	font-size:  14;
+}
+
+.header_content h1{
+  letter-spacing: 6px;
+  line-height: 20px;
+  text-align: center;
+  position: absolute;
+  top: 55px;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.header_heading{
+	color: var(--purple);
+	line-height: 1.2;
+	font-weight: 600;
+	letter-spacing: 1px;
+	font-size: 10vw;
+	font-family: 'Montserrat-bold';
+	margin-top:  17px;
+	margin-bottom: 17px;
+}
+
+.header_p	
+{
+	letter-spacing: 5px;
+	color: rgb(122, 137, 171);
+  margin-bottom: -134px;
+  font-size: 14px;
+  margin-bottom: 88px;
+}
+
+/*Styling of about section*/
+.about{
+	width: 100%;
+	min-height: 663px;
+	height: auto;
+	background-color: rgb(32,35,44);
+	font-family: Monsterrat;
+	margin-bottom: 88px;
+}
+
+.about_content{
+  width: 963px;
+  min-height: 581px;
+  height: auto;
+  font-family: Source_sans_pro-bold;
+  position: relative;
+  color: white;
+}
+
+
+
+.about_para{
+	flex-wrap: wrap;
+	margin-top: 160px;
+}
+
+.about_box{
+  max-width: 461px;
+  min-height: 409px;
+  height: auto;
+  margin: 10px;
+  color: var(--para_dark);
+  line-height: 1.88;
+  font-size: 16px;
+  font-family: 'Source_sans_pro';
+  font-weight: 600;
+}
+
+.about_slant{
+	width: 100%;
+	min-height: 663px;
+	height: auto;
+	background-color: rgb(32,35,44);
+	position: absolute;
+	z-index: -1;
+	transform: skewY(5deg);
+	transform-origin: top left;
+	z-index: -1;
+}
+
+/*Hiding the slant div extra area*/
+.recent_work-s-d{
+	width: 100%;
+	background: rgb(150,197,119);
+	position: absolute;
+	height: 663px;
+}
+
+/*Styling of why work with me section*/
+.recent_work{
+	width: 100%;
+	min-height: 663px;
+	height: auto;
+	background-color: rgb(150,197,119);
+}
+
+
+
+.work_content{
+  width: 1007px;
+  min-height: 581px;
+  height: auto;
+  font-family: Source_sans_pro-bold;
+  position: relative;
+  color: white;
+}
+
+.work_work{
+  width: 100%;
+  background: rgb(32,35,44);
+  flex-wrap: wrap;
+  margin-top: 250px;
+}
+
+.work_w_img{
+  width: 50%;
+  height: 402px;
+  background: green;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.w_w_img_flip{	
+  width: 100%;
+  height: 100%;
+  background: rgba(250,34,91,0.8);
+  font-family: 'Source_sans_pro';
+  font-size: 35px;
+  text-transform: uppercase;
+  transform-style: preserve-3d;
+  transform: rotateY(-90deg);
+  transition: transform 0.5s;
+}
+
+.work_w_img:hover  .w_w_img_flip{
+  transform: rotateY(0);
+}
+
+.w_view_work{
+  width: 100%;
+  height: 100px;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  background: var(--purple);
+  letter-spacing: 4px;
+  font-weight: 500;
+  transition: all 0.6s;
+}
+
+.w_view_work:hover{
+	background: white;
+	color: var(--purple);
+}
+
+
+/*Stylng of expert design advice*/
+.design_advice{
+	width: 100%;
+	min-height: 665px;
+	height: auto;
+	background: var(--violet);
+	font-family: Source_sans_pro-bold;
+	color: white;
+}
+
+.da_content{
+	position: relative;
+}
+
+.da_advice{
+	flex-wrap: wrap;
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  background: rgb(25,28,35);
+  margin-top: 165px;
+}
+
+.da_a_card{
+  width: 33.33%;
+  height: 500px;
+  float: left;
+  background: rgb(25,28,35);
+}
+.a_card_img{
+  width: 100%;
+  height: 42%;
+  background: tan;
+  background-size: cover;
+  background-position: center center;
+}
+
+.da_card_content{
+	font-family:  Montserrat-bold;
+	padding: 10px;
+	flex-direction: column;
+}
+
+.da_card_content h1{
+	color: var(--purple);
+	line-height: 1.3;
+	font-size: 28px;
+	cursor: pointer;
+	transition: color 0.4s;
+}
+
+.da_card_content h1:hover{
+	color: white;
+}
+
+.da_card_content p{
+	font-family: 'Source_sans_pro';
+	font-size: 18px;
+	line-height: 1.88;
+	color: var(--para_dark);
+}
+
+.a_c_img_flip{	
+  width: 100%;
+  height: 100%;
+  background: rgba(250,34,91,0.8);
+  font-family: 'Source_sans_pro';
+  font-size: 31px;
+  text-transform: uppercase;
+  transform-style: preserve-3d;
+  transform: rotateY(-90deg);
+  transition: transform 0.5s;
+  text-align:center;
+  cursor: pointer;
+}
+
+.a_card_img:hover  .a_c_img_flip{
+  transform: rotateY(0);
+}
+
+/*Styling of contact section*/
+.contact{
+	position: relative;
+	width: 100%;
+	min-height: 800px;
+	height: auto;
+	background: rgb(235,236,237);
+	flex-direction: column;
+}
+
+.contact_heading{
+	margin-top: 40px;
+	line-height: 1.2;
+	letter-spacing: 1px;
+	font-size: 40px;
+	font-family: Source_sans_pro-bold;
+}
+
+.contact_sub_heading{
+  color: #667084;
+  line-height: 1.29;
+  margin-top: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+
+.contact_sub_heading:after{
+  content: '';
+  background: #667084;
+  height: 1px;
+  width: 90%;
+  position: absolute;
+  bottom: -17px;
+  left: 5%;
+}
+
+.contact_co{
+  width: 90%;
+  height: 500px;
+  margin: 82px;
+  padding: 2px;
+  flex-direction: column;
+}
+
+.contact_co p{
+	margin-top: -65px;
+  width: 80%;
+  text-align: center;
+  color: #555c6e;
+  line-height: 1.88;
+  font-size: 18px;
+  font-family: 'SOURCE_SANS_PRO';
+  font-weight: 600;
+}
+
+.contact_content{
+	flex-direction: column;
+}
+
+form{
+  max-width: 620px;
+  width: 100%;
+  height: 400px;
+  flex-direction: column;
+}
+
+.form_input{
+  margin: 15px;
+  width: 67%;
+  height: 60px;
+  outline: none;
+  border: none;
+  padding: 11px;
+  color: #555c6e;
+}
+
+.form_btn{
+  margin-top: 15px;
+  width: 66%;
+  height: 60px;
+  font-family: 'MONTSERRAT';
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  line-height: 21px;
+  font-size: 18px;
+  transition: all 0.6s;
+  background: var(--purple);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+}
+
+.form_btn:hover{
+	background: white;
+	color: var(--purple)
+}
+
+/*Styling of footer*/
+footer{
+	width: 100%;
+	background: rgb(29,32,40);
+	height: 300px;
+	position: relative;
+}
+
+.thumbnail{
+  width: 120px;
+  height: 120px;
+  background: white;
+  position: absolute;
+  top: 10px;
+}
+
+.thumbnail1{
+  font-family: 'MONTSERRAT-BOLD';
+  font-size: 30px;
+  transform: translateX(-10px) translateY(-10px);
+  border: 3px solid rgb(29,32,40);
+}
+
+.footer_p{
+	color: #7a89ab;
+	font-family: 'Source_sans_pro';
+  font-size: 18px;
+  position: absolute;
+  bottom: 100px;
+  width: auto
+}

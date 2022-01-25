@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*
+		{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		.slant{
+			width: 100%;
+			height: 400px;
+			background: #ff336b;
+			position: relative;
+			text-align: center;
+
+			/*Giving margin so that the lower section does not get overlay on it*/
+			margin-bottom: 150px;
+		}
+
+		/*Styling of first slant div*/
+		.slantdiv{
+
+			/*Giving it the same height and width as per the parent element*/
+			width: 100%;
+			height: 400px;
+			background: #ff336b;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			/*Now we will make the div some slant that means rotate it*/
+			transform: skewY(5deg);
+
+			/*Now we want it to rotate from top left*/
+			transform-origin: top left;
+			z-index: -1;
+		}
+
+		.paradiv{
+			width: 100%;
+			height: 300px;
+		}
+
+		.paradiv p{
+			font-size: 20px;
+			padding: 60px 40px;
+			text-align: center;
+			line-height: 1.6em;
+		}
+
+		.slantdiv2{
+			transform-origin: center;
+
+			/*Change the color to black if you want to know how it is happening*/
+			background: #ff336b;
+		}
+	</style>
+</head>
+<body>
+	<div class="slant">
+		<h1>Mohit Sahu</h1>
+		<!-- Creating a div for creating an angle-->
+		<div class="slantdiv"></div>
+	</div>
+
+	<!-- Creating of the next div -->
+	<div class="paradiv">
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus sit facere libero, est sequi ullam, illo atque fugiat nam beatae numquam commodi quaerat deleniti tenetur perspiciatis distinctio hic, accusantium impedit laboriosam? Quisquam nemo, recusandae quos sunt impedit eaque, quia laborum. Modi, culpa ea nostrum ducimus corporis suscipit commodi quos deserunt!</p>
+	</div>
+
+	<div class="slant">
+		<h1>Mohit Sahu</h1>
+		<!-- Creating a div for creating an angle-->
+		<div class="slantdiv slantdiv2"></div>
+	</div>
+</body>
+</html>
